@@ -5,13 +5,11 @@
  */
 package edu.ulima.datos.proyecto;
 
-import edu.ulima.datos.proyecto.bean.Vendedor;
 import edu.ulima.datos.util.JdbcUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 
@@ -42,14 +40,14 @@ public class DatosComboBox {
         DefaultComboBoxModel modeloCliente;
         ArrayList<String> codClientes = new ArrayList<>();
         Connection conn = JdbcUtil.getConnection();
-        String sql = "SELECT N_DOCUMENTO FROM CLIENTE";
+        String sql = "SELECT N_DOCUMENTO_CLIENTE FROM CLIENTE";
         modeloCliente = new DefaultComboBoxModel();
         box.setModel(modeloCliente);
         PreparedStatement pst = conn.prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
         modeloCliente.addElement("");
         while (rs.next()) {
-            modeloCliente.addElement(rs.getString("N_DOCUMENTO"));
+            modeloCliente.addElement(rs.getString("N_DOCUMENTO_CLIENTE"));
         }
         rs.close();
         pst.close();
