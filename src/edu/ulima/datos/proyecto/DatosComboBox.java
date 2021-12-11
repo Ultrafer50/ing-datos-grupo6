@@ -20,7 +20,6 @@ import javax.swing.JComboBox;
 public class DatosComboBox {
     public static void obtenerProductos(JComboBox box) throws Exception{
         DefaultComboBoxModel modeloCodigo;
-        ArrayList<String> codProductos = new ArrayList<>();
         Connection conn = JdbcUtil.getConnection();
         String sql = "SELECT COD_PRODUCTO FROM PRODUCTO";
         modeloCodigo = new DefaultComboBoxModel();
@@ -38,7 +37,6 @@ public class DatosComboBox {
     
     public static void obtenerClientes(JComboBox box) throws Exception{
         DefaultComboBoxModel modeloCliente;
-        ArrayList<String> codClientes = new ArrayList<>();
         Connection conn = JdbcUtil.getConnection();
         String sql = "SELECT N_DOCUMENTO_CLIENTE FROM CLIENTE";
         modeloCliente = new DefaultComboBoxModel();
